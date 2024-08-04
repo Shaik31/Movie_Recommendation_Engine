@@ -1,5 +1,4 @@
 pip
-pickle
 pandas
 seaborn
 scikit-learn
