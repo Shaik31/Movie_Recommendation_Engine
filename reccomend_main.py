@@ -10,7 +10,7 @@ movies = df[['id','title','overview','genre']]
 movies['tags'] = movies['overview']+movies['genre']
 new_data = movies.drop(['overview','genre'],axis=1)
 
-tfidf = CountVectorizer(stop_words = 'english',max_features=150)
+tfidf = CountVectorizer(stop_words = 'english',max_features=1000)
 vector = tfidf.fit_transform(new_data['tags'].values.astype('U')).toarray()
 
 similarity = cosine_similarity(vector)
