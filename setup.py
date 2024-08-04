@@ -1,20 +1,4 @@
-from setuptools import setup, find_packages
-
-setup(
-    name='movie_recommendation_engine',
-    version='0.1',
-    packages=find_packages(),
-    install_requires=[
-        'numpy>=1.21.0',
-        'pandas>=1.3.0',
-        'scikit-learn>=0.24.0',
-        'streamlit>=0.87.0',
-        'pickle>=4.0'
-        # Add other dependencies here
-    ],
-)
-
-'''from setuptools import find_packages, setup
+from setuptools import find_packages, setup
 from typing import List
 HYPEN_E_DOT='-e .'
 
@@ -36,4 +20,4 @@ setup(
     author="Shaik Abdul Khadar",
     packages=find_packages(),
     install_requires = get_requirements('requirements.txt')
-)'''
+)
