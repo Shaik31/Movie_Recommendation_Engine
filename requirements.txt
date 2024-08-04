@@ -1,4 +1,4 @@
-python<35
+python<3.5
 pandas
 seaborn
 scikit-learn
