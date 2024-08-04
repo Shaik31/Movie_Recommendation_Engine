@@ -2,13 +2,26 @@
 import streamlit as st
 import pandas as pd
 import pickle
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.metrics.pairwise import cosine_similarity
 
+df = pd.read_csv('movies_dataset.csv')
+movies = df[['id','title','overview','genre']]
+movies['tags'] = movies['overview']+movies['genre']
+new_data = movies.drop(['overview','genre'],axis=1)
+
+tfidf = TfidfTransformer(stop_words = 'english',max_features=10000)
+vector = tfidf.fit_transform(new_data['tags'].values.astype('U')).toarray()
+
+similarity = cosine_similarity(vector)
 movies = pickle.load(open('movies_list.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+#similarity = pickle.load(open('similarity.pkl','rb'))
 movies_list = movies['title'].values
 
 st.header('Movie Recommender System')
 selectvalue=st.selectbox('Select Movie from dropdown',movies_list)
+
+
 
 def recommend(movie):
     index=movies[movies['title']==movie].index[0]
