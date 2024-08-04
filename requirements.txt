@@ -1,6 +1,9 @@
+pip
+python
 pandas
 seaborn
 scikit-learn
 matplotlib
 Streamlit
 pickle
+
