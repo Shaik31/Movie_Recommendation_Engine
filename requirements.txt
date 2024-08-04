@@ -1,5 +1,4 @@
-pip
-python
+python<35
 pandas
 seaborn
 scikit-learn
